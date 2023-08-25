@@ -11,6 +11,10 @@ import { AllTemplateUserComponent } from './FrontOffice/all-template-user/all-te
 import { BodyUserComponent } from './FrontOffice/body-user/body-user.component';
 import { FotterUserComponent } from './FrontOffice/fotter-user/fotter-user.component';
 import { HeaderUserComponent } from './FrontOffice/header-user/header-user.component';
+import { LoginComponent } from './login/login.component';
+import {FormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AppHttpInterceptor} from "./Interceptors/app-http.interceptor";
 
 @NgModule({
   declarations: [
@@ -23,13 +27,18 @@ import { HeaderUserComponent } from './FrontOffice/header-user/header-user.compo
     AllTemplateUserComponent,
     BodyUserComponent,
     FotterUserComponent,
-    HeaderUserComponent
+    HeaderUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide : HTTP_INTERCEPTORS , useClass : AppHttpInterceptor , multi  : true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
