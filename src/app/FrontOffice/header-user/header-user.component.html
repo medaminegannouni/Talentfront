@@ -1,4 +1,4 @@
-<header class="header-style-1"> 
+<header class="header-style-1">
     <div class="header-topbar topbar-style-2">
         <div class="container">
             <div class="row justify-content-between">
@@ -8,14 +8,12 @@
                             <li class="list-inline-item">
                                 <span class="text-color me-2"><i class="fa fa-phone-alt"></i></span><a href="tel:+(354) 6800 37849"> +(354) 6800 37849</a>
                             </li>
-
                             <li class="list-inline-item">
                                 <span class="text-color me-2"><i class="fa fa-envelope"></i></span><a href="malito:hello@edumel.com"> hello@edumel.com</a>
                             </li>
                         </ul>
                    </div>
                 </div>
-
                 <div class="col-xl-4 col-lg-6 col-md-12">
                    <div class="d-sm-flex justify-content-center justify-content-lg-end">
                         <div class="header-socials text-center text-lg-end">
@@ -29,8 +27,11 @@
                         </div>
 
                         <div class="header-btn text-center text-lg-end">
-                           <a href="#"> <i class="fa fa-user-alt"></i> Login/Register</a>
+                            <a href="/user/profile"> <i class="fa fa-user-alt"></i>{{user.username}}</a>
+                            <button (click)="logout()" class="btn btn-outline-primary btn-sm"> Login out </button>
+
                         </div>
+
                    </div>
                 </div>
             </div>
@@ -47,7 +48,7 @@
                 </div>
 
                 <div class="offcanvas-icon d-block d-lg-none">
-                    <a href="#" class="nav-toggler"><i class="fal fa-bars"></i></a> 
+                    <a href="#" class="nav-toggler"><i class="fal fa-bars"></i></a>
                 </div>
 
                 <div class="header-category-menu d-none d-xl-block">
@@ -77,7 +78,7 @@
                         <a href="#" class="search-submit"><i class="far fa-search"></i></a>
                     </form>
                  </div>
-        
+
                 <nav class="site-navbar ms-auto">
 
                     <ul class="primary-menu">
@@ -120,7 +121,7 @@
                                 <li><a href="cart.html">Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
                                 <li><a href="login.html">Login</a></li>
-                                <li><a href="Register.html">Register</a></li>
+                                    <a routerLink="/login">Login in </a>
                             </ul>
                         </li>
 

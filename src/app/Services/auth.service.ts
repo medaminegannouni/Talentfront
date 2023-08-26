@@ -11,7 +11,7 @@ export class AuthService {
   isAuthenticated: boolean = false;
   roles: any;
   username: any;
-  accessToken!: string;
+  accessToken!: any;
 
   private baseUrl = 'http://localhost:8089/auth'; // Replace with your server URL
 
@@ -46,4 +46,10 @@ export class AuthService {
     }
   }
 
+  logout() {
+    this.isAuthenticated=false ;
+    this.accessToken= undefined;
+    this.username=undefined;
+    this.roles=undefined;
+  }
 }

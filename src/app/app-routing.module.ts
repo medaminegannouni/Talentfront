@@ -5,6 +5,7 @@ import { AllTemplatesAdminComponent } from './BackOffice/all-templates-admin/all
 import { AllTemplateUserComponent } from './FrontOffice/all-template-user/all-template-user.component';
 import { BodyUserComponent } from './FrontOffice/body-user/body-user.component';
 import {LoginComponent} from "./login/login.component";
+import {AuthenticationGuard} from "./guards/authentication.guard";
 const routes: Routes = [
   {
     path: 'login',
@@ -12,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AllTemplatesAdminComponent,
+    component: AllTemplatesAdminComponent,canActivate:[AuthenticationGuard],
     children: [
       {
         path: 'home',
@@ -22,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: AllTemplateUserComponent,
+    component: AllTemplateUserComponent,canActivate:[AuthenticationGuard],
     children: [
       {
         path: 'home',
