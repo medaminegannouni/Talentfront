@@ -14,18 +14,24 @@ export class LoginComponent {
   user = {
     name: '',
     password: '',
-    passwordConfirm: ''
   };
 
   login() {
     console.log('Login clicked:', this.user);
     this.authService.loginUser(this.user.name, this.user.password).subscribe({
       next: data => {
-        console.log(data)
+        console.log(data);
         this.authService.loadprofile(data);
-        //this.router.navigateByUrl("/admin")
       }
     });
   }
 
+  add() {
+    console.log('Login clicked:', this.user);
+    this.authService.registerUser(this.user.name, this.user.password).subscribe({
+      next: data => {
+        console.log(data);
+      }
+    });
+  }
 }
