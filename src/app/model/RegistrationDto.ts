@@ -1,4 +1,4 @@
-export interface RegistrationDto{
-    username:string;
-    password:string;
+export class RegistrationDto{
+    username?:string;
+    password?:string;
 }

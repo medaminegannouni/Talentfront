@@ -15,6 +15,13 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AppHttpInterceptor} from "./Interceptors/app-http.interceptor";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ProfileComponent } from './User/profile/profile.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { UsersComponent } from './User/users/users.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CareerComponent } from './career/career.component';
+import { OffreComponent } from './offre/offre.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +35,20 @@ import {AppHttpInterceptor} from "./Interceptors/app-http.interceptor";
     BodyUserComponent,
     FotterUserComponent,
     HeaderUserComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    NotAuthorizedComponent,
+    UsersComponent,
+    CoursesComponent,
+    CareerComponent,
+    OffreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatSnackBarModule,
 
   ],
   providers: [

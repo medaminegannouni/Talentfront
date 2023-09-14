@@ -45,7 +45,6 @@ export class AuthService {
       this.route.navigateByUrl("/user"); // Navigate to a default route (for other roles)
     }
   }
-
   logout() {
     this.isAuthenticated=false ;
     this.accessToken= undefined;

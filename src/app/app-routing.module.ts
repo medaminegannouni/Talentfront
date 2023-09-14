@@ -6,6 +6,14 @@ import { AllTemplateUserComponent } from './FrontOffice/all-template-user/all-te
 import { BodyUserComponent } from './FrontOffice/body-user/body-user.component';
 import {LoginComponent} from "./login/login.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
+import {ProfileComponent} from "./User/profile/profile.component";
+import {AuthorizationGuard} from "./guards/authorization.guard";
+import {NotAuthorizedComponent} from "./not-authorized/not-authorized.component";
+import { UsersComponent } from './User/users/users.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CareerComponent } from './career/career.component';
+import { OffreComponent } from './offre/offre.component';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -13,23 +21,51 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AllTemplatesAdminComponent,canActivate:[AuthenticationGuard],
+    component: AllTemplatesAdminComponent,canActivate:[AuthenticationGuard],data :{role:"ADMIN"},
     children: [
       {
         path: 'home',
-        component: BodyAdminComponent
+        component: BodyAdminComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path:'users',
+        component:UsersComponent,
+      },
+      {
+        path:'courses',
+        component:CoursesComponent,
+      },
+      {
+        path:'carrers',
+        component:CareerComponent,
+      },
+      {
+        path:'jobs',
+        component:OffreComponent,
       }
     ]
   },
   {
     path: 'user',
-    component: AllTemplateUserComponent,canActivate:[AuthenticationGuard],
+    component: AllTemplateUserComponent,canActivate:[AuthenticationGuard],data :{role:"USER"},
     children: [
       {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
         path: 'home',
-        component: BodyUserComponent
+        component: BodyUserComponent,
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: "/login"
   }
 ];
 
